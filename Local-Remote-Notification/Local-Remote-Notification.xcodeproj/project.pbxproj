@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C005EBDC29D7257F008A188F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C070970429D69C21000C83FB /* Local-Remote-Notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local-Remote-Notification.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C070970729D69C21000C83FB /* Local_Remote_NotificationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local_Remote_NotificationApp.swift; sourceTree = "<group>"; };
 		C070970929D69C21000C83FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		C070970629D69C21000C83FB /* Local-Remote-Notification */ = {
 			isa = PBXGroup;
 			children = (
+				C005EBDC29D7257F008A188F /* Info.plist */,
 				C070970729D69C21000C83FB /* Local_Remote_NotificationApp.swift */,
 				C070970929D69C21000C83FB /* ContentView.swift */,
 				C070970B29D69C22000C83FB /* Assets.xcassets */,
@@ -274,6 +276,7 @@
 				DEVELOPMENT_TEAM = N4P48JMYVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Local-Remote-Notification/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +306,7 @@
 				DEVELOPMENT_TEAM = N4P48JMYVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Local-Remote-Notification/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

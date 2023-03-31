@@ -7,33 +7,42 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @State private var notificationIndex = 0
+    
+    @Binding var navigationRouter: NavigationRouter
     
     var body: some View {
         VStack {
             Spacer()
             
-            Button(action: {
-                requestNotification()
-            }) {
-                Text("즉시 알림 요청")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
+            // MARK: navigationRouter에 따라 다른 뷰가 보여지도록 구현
+            if navigationRouter == .normal {
+                Button(action: {
+                    requestNotification()
+                }) {
+                    Text("즉시 알림 요청")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .tint(.red)
+                
+                Button(action: {
+                    requestNotification(false)
+                }) {
+                    Text("3초 뒤, 알림 요청")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .tint(.blue)
+            } else {
+                Text("알림으로 들어옴")
+                    .font(.title)
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-            .tint(.red)
-            
-            Button(action: {
-                requestNotification(false)
-            }) {
-                Text("3초 뒤, 알림 요청")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-            .tint(.blue)
             
             Spacer()
         }
@@ -41,7 +50,6 @@ struct ContentView: View {
     }
     
     private func requestNotification(_ immediate: Bool = true) {
-        //
         let content = UNMutableNotificationContent()
         content.title = immediate ? "즉시 알림" : "3초 뒤 알림"
         content.body = "안녕하세요, 알림입니다."
@@ -66,6 +74,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(navigationRouter: .constant(NavigationRouter.normal))
     }
 }

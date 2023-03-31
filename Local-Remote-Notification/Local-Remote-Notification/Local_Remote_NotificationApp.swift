@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+public enum NavigationRouter: String {
+    case normal = "Normal"
+    case notification = "Notification"
+}
+
 @main
 struct Local_Remote_NotificationApp: App {
     @UIApplicationDelegateAdaptor var delegate : AppDelegate
+    
+    @State private var navigationRouter: NavigationRouter = .normal
     
     // MARK: AppDelegate에서 진행해도 되는데, App 단에서 하는게 SwiftUI스러워서 일단 여기서 진행
     init() {
@@ -18,7 +25,13 @@ struct Local_Remote_NotificationApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(navigationRouter: $navigationRouter)
+                // 전달 받은 URL scheme에 따라 다른 뷰로 이동하도록 routerType 전달
+                .onOpenURL(perform: { url in
+                    if url.absoluteString == "Local-Remote-Notification://active" {
+                        navigationRouter = .notification
+                    }
+                })
         }
     }
     
