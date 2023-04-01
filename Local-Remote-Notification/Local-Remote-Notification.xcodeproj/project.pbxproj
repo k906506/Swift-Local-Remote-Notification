@@ -12,6 +12,7 @@
 		C070970C29D69C22000C83FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C070970B29D69C22000C83FB /* Assets.xcassets */; };
 		C070970F29D69C22000C83FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C070970E29D69C22000C83FB /* Preview Assets.xcassets */; };
 		C070971629D6C2DC000C83FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070971529D6C2DC000C83FB /* AppDelegate.swift */; };
+		C0EF473C29D7AF9A004BC6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF473B29D7AF9A004BC6D5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C070970B29D69C22000C83FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C070970E29D69C22000C83FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C070971529D6C2DC000C83FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C0EF473B29D7AF9A004BC6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C070970B29D69C22000C83FB /* Assets.xcassets */,
 				C070970D29D69C22000C83FB /* Preview Content */,
 				C070971529D6C2DC000C83FB /* AppDelegate.swift */,
+				C0EF473B29D7AF9A004BC6D5 /* Constants.swift */,
 			);
 			path = "Local-Remote-Notification";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				C070971629D6C2DC000C83FB /* AppDelegate.swift in Sources */,
 				C070970A29D69C21000C83FB /* ContentView.swift in Sources */,
 				C070970829D69C21000C83FB /* Local_Remote_NotificationApp.swift in Sources */,
+				C0EF473C29D7AF9A004BC6D5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,8 @@ import SwiftUI
 
 public enum NavigationRouter: String {
     case normal = "Normal"
-    case notification = "Notification"
+    case active = "active"
+    case background = "Background"
 }
 
 @main
@@ -28,8 +29,16 @@ struct Local_Remote_NotificationApp: App {
             ContentView(navigationRouter: $navigationRouter)
                 // 전달 받은 URL scheme에 따라 다른 뷰로 이동하도록 routerType 전달
                 .onOpenURL(perform: { url in
-                    if url.absoluteString == "Local-Remote-Notification://active" {
-                        navigationRouter = .notification
+                    switch url.absoluteString {
+                        
+                    case Constants.NAVIGATION_ROUTER_IN_ACTIVE:
+                        navigationRouter = .active
+                        
+                    case Constants.NAVIGATION_ROUTER_IN_BACKGROUND:
+                        navigationRouter = .background
+                        
+                    default:
+                        fatalError()
                     }
                 })
         }

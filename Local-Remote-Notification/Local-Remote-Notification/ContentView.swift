@@ -17,8 +17,10 @@ struct ContentView: View {
         VStack {
             Spacer()
             
-            // MARK: navigationRouter에 따라 다른 뷰가 보여지도록 구현
-            if navigationRouter == .normal {
+            // MARK: routerType에 따라 다른 뷰가 보여지도록 구현
+            switch navigationRouter {
+                
+            case .normal:
                 Button(action: {
                     requestNotification()
                 }) {
@@ -39,9 +41,15 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .tint(.blue)
-            } else {
-                Text("알림으로 들어옴")
-                    .font(.title)
+                
+            case .active:
+                Text("Active 상태에서 알림으로 들어옴")
+                    .font(.title2)
+                
+            case .background:
+                Text("Background 상태에서 알림으로 들어옴")
+                    .font(.title2)
+                
             }
             
             Spacer()

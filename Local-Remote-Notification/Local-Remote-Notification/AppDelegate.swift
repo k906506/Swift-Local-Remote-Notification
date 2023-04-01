@@ -31,11 +31,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             
         case .active, .inactive:
             // URL Scheme으로 App 단으로 이벤트 전달
-            let url = URL(string: "Local-Remote-Notification://active")!
+            let url = URL(string: Constants.NAVIGATION_ROUTER_IN_ACTIVE)!
             await UIApplication.shared.open(url)
             
-            // TODO: background도 URL Scheme으로 전달할 수 있나?
-            // case .background:
+            // TODO: background도 URL Scheme으로 전달할 수 있나? -> Remote Notification에서 테스트 해봐야할 듯
+            case .background:
+            let url = URL(string: Constants.NAVIGATION_ROUTER_IN_BACKGROUND)!
+            await UIApplication.shared.open(url)
             
         @unknown default:
             fatalError()
