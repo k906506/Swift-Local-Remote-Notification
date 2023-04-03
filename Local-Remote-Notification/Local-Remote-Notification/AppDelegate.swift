@@ -28,6 +28,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     // apnsToken에 deviceToken 전달
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
+        
+        // FirebaseManager.shared.sendDeviceToken(deviceToken: deviceToken) // 서버에 DeviceToken 저장
     }
 }
 
@@ -59,9 +61,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate: MessagingDelegate {
-    // FCM 테스트를 위해 FCM Token를 가져오는 메서드 (실제 FCM에서는 필요 없음, Only 테스트용)
+    // FCM 테스트를 위해 FCM Token를 가져오는 메서드
+    // Firebase Function을 사용하기 위해선 FCMToken을 서버에 저장, FCMToken을 활용해서 FCM을 진행
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         let firebaseToken = fcmToken ?? ""
         print("firebase token: \(firebaseToken)")
+        
+        FirebaseManager.shared.sendDeviceToken(deviceToken: firebaseToken) // 서버에 DeviceToken 저장
     }
 }
