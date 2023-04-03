@@ -9,7 +9,7 @@ import SwiftUI
 
 public enum NavigationRouter: String {
     case normal = "Normal"
-    case active = "active"
+    case active = "Active"
     case background = "Background"
 }
 
