@@ -6,6 +6,8 @@
 //
 
 import Combine
+import FirebaseCore
+import FirebaseMessaging
 import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -13,8 +15,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        // ...
+        // Firebase init
+        FirebaseApp.configure()
+        
+        // FCM 테스트를 위한 delegate 채택
+        Messaging.messaging().delegate = self
+        application.registerForRemoteNotifications()
+        
         return true
+    }
+    
+    // apnsToken에 deviceToken 전달
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
     }
 }
 
@@ -42,5 +55,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         @unknown default:
             fatalError()
         }
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    // FCM 테스트를 위해 FCM Token를 가져오는 메서드 (실제 FCM에서는 필요 없음, Only 테스트용)
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        let firebaseToken = fcmToken ?? ""
+        print("firebase token: \(firebaseToken)")
     }
 }
